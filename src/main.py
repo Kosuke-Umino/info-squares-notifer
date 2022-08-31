@@ -93,13 +93,13 @@ def post_message(message, post_url):
 
 
 def main():
-    # 画面非表示設定
+    # 画面非表示及びドライバーの設定
     options = Options()
     options.add_argument('--headless')
-
-    # Info Squares ログインページ
     chrome_service = service.Service(executable_path=CHROMEDRIVER_PATH)
     driver = webdriver.Chrome(service=chrome_service, options=options)
+
+    # Info Squares ログインページ
     driver.get(INFOSQUARES_URL)
     driver.find_element(By.CLASS_NAME, "list-group-item").send_keys(Keys.ENTER)
 
